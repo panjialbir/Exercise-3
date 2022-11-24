@@ -58,7 +58,41 @@ public void traverse()/*traverses all the nodes of the list*/
             Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
             currentNode = currentNode.next;
         }
-        Console.Write(LAST.rollNumber + " ")
+        Console.Write(LAST.rollNumber + "   " + LAST.name + "\n");
+
+    }
+}
+public void firstNode()
+{
+    if (listEmpty())
+        Console.WriteLine("\nlist is empty");
+    else
+        Console.WriteLine("\nthe first record in the list is:\n\n" + LAST.next.rollNumber + "  " + LAST.next.name);
+
+}
+static void Main(string[] args)
+{
+    CircularList obj = new CircularList();
+    while (true)
+    {
+        try
+        {
+            Console.WriteLine("\nmenu");
+            Console.WriteLine("1. view all the record in the list");
+            Console.WriteLine("2. search for a record in the list");
+            Console.WriteLine("3. display in the record in the list");
+            Console.WriteLine("exit");
+            Console.Write("\nenter your choice (1-4):");
+            char ch = Convert.ToChar(Console.ReadLine());
+            switch (ch)
+            {
+                case '1':
+                    {
+                        obj.traverse();
+
+                    }
+            }
+        }
     }
 }
 
