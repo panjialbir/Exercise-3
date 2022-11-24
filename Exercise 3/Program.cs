@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace Exercise_Linked List_A 
-    {
+namespace Exercise_Linked_List_A 
+{
     class Node
 {
     //create nodes from the circular nexted list
@@ -14,18 +13,16 @@ namespace Exercise_Linked List_A
     public string name;
     public Node text;
 }
-class circularlist()
+class CircularList
     {
     Node LAST;
-public circularlist()
+public CircularList()
 {
     LAST = null;
         }
-public bool Search(int rollNo, ref Node previous, ref Node current)/
-* Searches for the specified node*/
+public bool Search(int rollNo, ref Node previous, ref Node current)/*Searches for the specified node*/
     {
-    for (previous = current = LAST.next; current != LAST; previous
-current, current = current.next)
+    for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
     {
     if (rollNo == current.rollNumber)
 return (true);/*returns true if the node is found*/
@@ -91,9 +88,44 @@ static void Main(string[] args)
                         obj.traverse();
 
                     }
+                    break;
+                case '2':
+                    {
+                        if (obj.listempty() == true)
+                        {
+                            Console.WriteLine("\nlist is empty");
+                            break;
+                        }
+                        Node prev, curr;
+                        prev = curr = null;
+                        Console.Write("\nenter the roll number of the student whose record is to be searched: ");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        if (obj.search(num, ref prev, ref curr) == false)
+                            Console.WriteLine("\nrecord not found");
+                        else
+                        {
+                            Console.WriteLine("\nrecord found");
+                            Console.WriteLine("\nroll number: " +  curr.rollNumber);
+                            Console.WriteLine("\nName: " + curr.Name);
+
+                        }
+                    }
+                    break;
+                case '4':
+                    return;
+                default:
+                    {
+                        Console.WriteLine("invalid option");
+                        break;
+                    }
             }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.ToString());
         }
     }
 }
-
+}
+}
 }
